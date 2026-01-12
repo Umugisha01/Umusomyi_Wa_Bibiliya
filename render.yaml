@@ -16,7 +16,7 @@ services:
       - key: DB_NAME
         fromDatabase:
           name: umusomyi-db
-          property: databaseName
+          property: database
       - key: DB_USER
         fromDatabase:
           name: umusomyi-db
