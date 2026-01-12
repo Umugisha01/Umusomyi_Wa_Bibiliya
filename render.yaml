@@ -5,15 +5,23 @@ services:
     image:
       url: bumugisha/umusomyi-backend:latest
     envVars:
-      - key: SPRING_DATASOURCE_URL
+      - key: DB_HOST
         fromDatabase:
           name: umusomyi-db
-          property: connectionString
-      - key: SPRING_DATASOURCE_USERNAME
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: umusomyi-db
+          property: port
+      - key: DB_NAME
+        fromDatabase:
+          name: umusomyi-db
+          property: databaseName
+      - key: DB_USER
         fromDatabase:
           name: umusomyi-db
           property: user
-      - key: SPRING_DATASOURCE_PASSWORD
+      - key: DB_PASS
         fromDatabase:
           name: umusomyi-db
           property: password
