@@ -1,0 +1,36 @@
+services:
+  app:
+    build: .
+    container_name: umusomyi-backend
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/umusomyi-wa-Bibiliya
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+    depends_on:
+      - db
+    networks:
+      - umusomyi-network
+
+  db:
+    image: postgres:15
+    container_name: umusomyi-db
+    environment:
+      - POSTGRES_DB=umusomyi-wa-Bibiliya
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - umusomyi-network
+
+networks:
+  umusomyi-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
