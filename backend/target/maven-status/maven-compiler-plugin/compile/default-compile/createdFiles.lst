@@ -1,0 +1,5 @@
+com\umusomyi\backend\controller\ReadingController.class
+com\umusomyi\backend\BackendApplication.class
+com\umusomyi\backend\repository\ReadingRepository.class
+com\umusomyi\backend\service\ReadingService.class
+com\umusomyi\backend\model\Reading.class
