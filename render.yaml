@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: umusomyi-backend
+    runtime: image
+    image:
+      url: bumugisha/umusomyi-backend:latest
+    envVars:
+      - key: SPRING_DATASOURCE_URL
+        fromDatabase:
+          name: umusomyi-db
+          property: connectionString
+      - key: SPRING_DATASOURCE_USERNAME
+        fromDatabase:
+          name: umusomyi-db
+          property: user
+      - key: SPRING_DATASOURCE_PASSWORD
+        fromDatabase:
+          name: umusomyi-db
+          property: password
+    plan: free
+
+databases:
+  - name: umusomyi-db
+    databaseName: umusomyi_wa_bibiliya
+    user: postgres
+    plan: free
