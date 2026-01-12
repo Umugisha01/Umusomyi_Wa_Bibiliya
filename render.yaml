@@ -22,5 +22,4 @@ services:
 databases:
   - name: umusomyi-db
     databaseName: umusomyi_wa_bibiliya
-    user: postgres
     plan: free
